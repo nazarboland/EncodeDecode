@@ -1,0 +1,28 @@
+Agorithm DecodeString( )
+
+Input:  Input_String
+Output: Output_String
+
+SET Output_String To EmptyString
+ 
+IF Input_String is Null or Input_String is EmptyString 
+	SET Output_String to EmptyString
+	RETURN Output_String
+END_IF
+
+FOREACH Character in Input_String
+	IF Character is EnglishAlphabet
+	THEN 
+		alpha_value = CharToNumber (Character)
+		IF alpha_value < 3
+			THEN HandleError (UnknownCharacter)
+			BREAK
+		END_IF
+		alpha_value = alpha_value - 3
+		NewCharacter = NumberToChar (alpha_value) 	 
+		Output_String = Output_String  + NewCharacter
+	ELSE
+		HandleError (UnknownCharacter)
+	END_IF
+END FOREACH
+RETURN Output_String
