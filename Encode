@@ -1,0 +1,30 @@
+Agorithm EncodeString( )
+
+Input:  Input_String
+Output: Output_String
+
+SET Output_String To EmptyString
+ 
+IF Input_String IS Null OR Input_String is EmptyString 
+	SET Output_String to EmptyString
+	RETURN Output_String
+END_IF
+
+FOREACH Character in Input_String
+	IF Character is EnglishAlphabet
+	THEN 
+		alpha_value = CharToNumber (Character)
+		alpha_value = alpha_value + 3
+		IF alpha_valuealpha_value > 25
+			THEN HandleError (UnhandledEnglishCharacter)
+      SET Output_String to EmptyString
+			BREAK
+		END IF
+		NewCharacter = NumberToChar (alpha_value) 	 
+		Output_String = Output_String  + NewCharacter
+	ELSE
+		HandleError (UnknownCharacter )
+	END_IF
+END FOREACH
+
+RETURN Output_String
