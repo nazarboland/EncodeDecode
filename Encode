@@ -16,14 +16,14 @@ FOREACH Character in Input_String
 		alpha_value = CharToNumber (Character)
 		alpha_value = alpha_value + 3
 		IF alpha_valuealpha_value > 25
-			THEN HandleError (UnhandledEnglishCharacter)
-      SET Output_String to EmptyString
+			THEN HandleError (UnknownCharacter)
+      	SET Output_String to EmptyString
 			BREAK
 		END IF
 		NewCharacter = NumberToChar (alpha_value) 	 
 		Output_String = Output_String  + NewCharacter
 	ELSE
-		HandleError (UnknownCharacter )
+		HandleError (UnknownCharacter)
 	END_IF
 END FOREACH
 
